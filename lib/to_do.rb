@@ -1,9 +1,10 @@
 class Task
-  attr_reader(:description, :list_id)
+  attr_reader(:description, :list_id, :due_date)
 
   define_method(:initialize) do |attributes|
     @description  = attributes.fetch(:description)
     @list_id = attributes.fetch(:list_id)
+    @due_date = ""
   end
 
   define_method(:==) do |another_task|
