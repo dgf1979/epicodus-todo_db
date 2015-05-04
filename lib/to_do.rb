@@ -9,8 +9,13 @@ class Task
     self.description().==(another_task.description())
   end
 
-  define_method(:all) do
-    
+  define_singleton_method(:all) do
+    returned_tasks = DB.exec("SELECT * FROM task;")
+    tasks = []
+    returned_tasks.each() do |task|
+      description = task.fetch("description")
+      tasks.push(Task.new({:description => description}))
+    end
+    tasks
   end
-
 end
