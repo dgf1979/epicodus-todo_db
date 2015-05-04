@@ -20,6 +20,6 @@ class Task
   end
 
   define_method(:save) do
-
+    DB.exec("INSERT INTO task (description) VALUES ('#{@description}');")
   end
 end
