@@ -34,4 +34,12 @@ describe(List) do
     end
   end
 
+  describe('#id') do
+    it("sets its ID when you save it") do
+      list = List.new({:name => "Epicodus stuff"})
+      list.save()
+      expect(list.id()).to(be_an_instance_of(Fixnum))
+    end
+  end
+
 end
