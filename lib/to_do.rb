@@ -18,4 +18,8 @@ class Task
     end
     tasks
   end
+
+  define_method(:save) do
+
+  end
 end
