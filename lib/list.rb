@@ -20,6 +20,7 @@ class List
   end
 
   define_method(:save) do
-    DB.exec("INSERT INTO list (name) VALUES ('#{@name}');")
+    result = DB.exec("INSERT INTO list (name) VALUES ('#{@name}') RETURNING ID;")
+    @id = result.first().fetch("id").to_i()
   end
 end
