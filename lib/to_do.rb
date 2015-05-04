@@ -7,7 +7,7 @@ class Task
   end
 
   define_method(:==) do |another_task|
-    self.description().==(another_task.description()) 
+    self.description().==(another_task.description())
   end
 
   define_singleton_method(:all) do
@@ -22,6 +22,7 @@ class Task
   end
 
   define_method(:save) do
-    DB.exec("INSERT INTO task (description) VALUES ('#{@description}');")
+    DB.exec("INSERT INTO task (description, list_id)
+    VALUES ('#{@description}', #{@list_id});")
   end
 end
