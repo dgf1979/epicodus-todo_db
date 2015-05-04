@@ -14,8 +14,8 @@ end
 describe(Task) do
   describe("#==") do
     it("is the same task if description is the same") do
-      task1 = Task.new({:description => "learn SQL"})
-      task2 = Task.new({:description => "learn SQL"})
+      task1 = Task.new({:description => "learn SQL", :list_id => 1})
+      task2 = Task.new({:description => "learn SQL", :list_id => 1})
       expect(task1).to(eq(task2))
     end
   end
@@ -28,7 +28,7 @@ describe(Task) do
 
   describe("#save") do
     it("adds a task to the array of saved tasks") do
-      test_task = Task.new({:description => "learn SQL"})
+      test_task = Task.new({:description => "learn SQL", :list_id => 1})
       test_task.save()
       expect(Task.all()).to(eq([test_task]))
     end

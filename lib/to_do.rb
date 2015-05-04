@@ -3,11 +3,11 @@ class Task
 
   define_method(:initialize) do |attributes|
     @description  = attributes.fetch(:description)
-    @list_id = 0 #attributes.fetch(:list_id)
+    @list_id = attributes.fetch(:list_id)
   end
 
   define_method(:==) do |another_task|
-    self.description().==(another_task.description())
+    self.description().==(another_task.description()) 
   end
 
   define_singleton_method(:all) do
@@ -15,7 +15,8 @@ class Task
     tasks = []
     returned_tasks.each() do |task|
       description = task.fetch("description")
-      tasks.push(Task.new({:description => description}))
+      list_id = task.fetch("list_id").to_i()
+      tasks.push(Task.new({:description => description, :list_id => list_id}))
     end
     tasks
   end
