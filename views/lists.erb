@@ -1,5 +1,5 @@
 <ul>
   <% @all_lists.each do |list| %>
-    <li><%= list.name %></li>
+    <li><a href='/list/<%= list.id %>'><%= list.name %></a></li>
   <% end %>
 </ul>
