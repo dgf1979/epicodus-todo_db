@@ -19,7 +19,9 @@ post('/list/new') do
   name = params.fetch('name')
   new_list = List.new({ :name => name})
   new_list.save()
-  erb(:success)
+  @all_lists = List.all()
+  erb(:lists)
+  #erb(:success)
 end
 
 get('/lists') do

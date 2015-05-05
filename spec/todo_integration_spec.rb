@@ -11,7 +11,8 @@ describe('adding a new list', {:type => :feature}) do
     click_link('Add New List')
     fill_in('name', :with =>'Epicodus Work')
     click_button('Add List')
-    expect(page).to have_content('Success!')
+    #expect(page).to have_content('Success!')
+    expect(page).to have_content('Epicodus Work')
   end
 
   #As a user, I want to see all of the lists that I have created so that I can manage them one at a time.
