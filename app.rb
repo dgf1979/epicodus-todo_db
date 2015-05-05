@@ -11,6 +11,10 @@ get('/') do
   erb(:index)
 end
 
-post('/lists/new') do
+get('/list/new') do
+  erb(:new_list_form)
+end
+
+post('/list/new') do
   erb(:success)
 end
